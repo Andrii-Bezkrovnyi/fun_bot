@@ -19,6 +19,19 @@ def recommend_movies():
     else:
         print(Fore.RED + "❌ Genre not found!")
 
+def recommend_music():
+    music = {
+        "Rock": ["AC/DC - Thunderstruck", "Nirvana - Smells Like Teen Spirit"],
+        "Pop": ["Michael Jackson - Billie Jean", "Dua Lipa - Levitating"],
+        "Classical": ["Beethoven - Symphony No.5", "Mozart - Eine kleine Nachtmusik"]
+    }
+    print(Fore.YELLOW + "Choose genre: Rock / Pop / Classical")
+    genre = input("👉 ").capitalize()
+    if genre in music:
+        print(Fore.CYAN + f"🎵 Recommended track: {random.choice(music[genre])}")
+    else:
+        print(Fore.RED + "❌ Genre not found!")
+
 
 def exit_bot():
     print(Fore.CYAN + "👋 Goodbye! Thanks for playing!")
@@ -42,7 +55,16 @@ def main_menu():
 
         if choice == "1":
             recommend_movies()
-
+        elif choice == "2":
+            recommend_music()
+        elif choice == "3":
+            recommend_games()
+        elif choice == "4":
+            tell_joke()
+        elif choice == "5":
+            guess_number_game()
+        elif choice == "6":
+            rock_paper_scissors()
         elif choice == "7":
             exit_bot()
         else:
