@@ -4,6 +4,22 @@ from art import tprint
 from colorama import Fore, init
 import emoji
 
+init(autoreset=True)  # auto reset colorama colors
+
+def recommend_movies():
+    movies = {
+        "Action": ["Mad Max", "John Wick", "The Dark Knight"],
+        "Comedy": ["The Mask", "Home Alone", "The Hangover"],
+        "Sci-Fi": ["Inception", "Interstellar", "The Matrix"]
+    }
+    print(Fore.YELLOW + "Choose genre: Action / Comedy / Sci-Fi")
+    genre = input("👉 ").capitalize()
+    if genre in movies:
+        print(Fore.CYAN + f"🎬 Recommended movie: {random.choice(movies[genre])}")
+    else:
+        print(Fore.RED + "❌ Genre not found!")
+
+
 def exit_bot():
     print(Fore.CYAN + "👋 Goodbye! Thanks for playing!")
     exit()
@@ -24,7 +40,10 @@ def main_menu():
         """)
         choice = input("Choose option (1-7): ")
 
-        if choice == "7":
+        if choice == "1":
+            recommend_movies()
+
+        elif choice == "7":
             exit_bot()
         else:
             print(Fore.RED + "❌ Invalid choice, try again!")
