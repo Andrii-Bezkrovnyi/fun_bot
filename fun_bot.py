@@ -32,6 +32,43 @@ def recommend_music():
     else:
         print(Fore.RED + "❌ Genre not found!")
 
+def recommend_games():
+    games = ["Minecraft", "The Witcher 3", "Among Us", "Cyberpunk 2077"]
+    print(Fore.CYAN + f"🎮 How about playing: {random.choice(games)}")
+
+def tell_joke():
+    joke = pyjokes.get_joke()
+    print(Fore.GREEN + "😂 Here's a joke for you:")
+    print(joke)
+
+def guess_number_game():
+    print(Fore.MAGENTA + "🎲 Guess the number (1-10)")
+    number = random.randint(1, 10)
+    while True:
+        guess = input("Your guess: ")
+        if not guess.isdigit():
+            print(Fore.RED + "❌ Enter a number!")
+            continue
+        guess = int(guess)
+        if guess == number:
+            print(Fore.GREEN + "✅ Correct! You win!")
+            break
+        else:
+            print(Fore.YELLOW + "❌ Wrong! Try again.")
+
+def rock_paper_scissors():
+    choices = ["rock", "paper", "scissors"]
+    user = input("✊ Rock, 📄 Paper or ✂️ Scissors? ").lower()
+    comp = random.choice(choices)
+    print(f"Computer chose: {comp}")
+    if user == comp:
+        print(Fore.YELLOW + "It's a draw!")
+    elif (user == "rock" and comp == "scissors") or \
+         (user == "scissors" and comp == "paper") or \
+         (user == "paper" and comp == "rock"):
+        print(Fore.GREEN + "✅ You win!")
+    else:
+        print(Fore.RED + "❌ You lose!")
 
 def exit_bot():
     print(Fore.CYAN + "👋 Goodbye! Thanks for playing!")
